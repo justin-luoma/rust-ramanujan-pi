@@ -1,7 +1,8 @@
-use crate::util::{factorial, float};
-use crate::PREC;
 use rug::ops::Pow;
 use rug::Float;
+
+use crate::util::{factorial, float};
+use crate::PREC;
 
 pub fn ramanujan_pi_calc(it: u32) -> Float {
     let mut sum: Float = Float::with_val(PREC, 0);

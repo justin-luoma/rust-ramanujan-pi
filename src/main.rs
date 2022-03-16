@@ -8,12 +8,16 @@ struct Args {
     /// Sets the number of iterations
     #[clap(short, long, default_value_t = 100)]
     iterations: u32,
+
+    /// Sets the number of digits to display
+    #[clap(short, long, default_value_t = 42)]
+    digits: u32,
 }
 
 fn main() {
     let args = Args::parse();
 
-    let rpi = ramanujan_pi_calc(args.iterations);
+    let pi = ramanujan_pi_calc(args.iterations);
 
-    println!("{:.42}", rpi);
+    println!("{}", pi.to_string_radix(10, Some(args.digits as usize)));
 }
